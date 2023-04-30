@@ -85,5 +85,9 @@ class FileStorage:
         if cls:
             if cls not in classes.values():
                 return 0
-            return self.__session.query(        
-
+            return self.__session.query(cls).count()
+        else:
+            count = 0
+            for cls in classes.values():
+                count += self.__session.query(cls).count()
+            return count
