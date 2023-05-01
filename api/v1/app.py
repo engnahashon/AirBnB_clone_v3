@@ -14,11 +14,13 @@ def teardown_db(exception=None):
     """ Closes the database again at the end of a request. """
     storage.close()
 
+
 @app.errorhandler(404)
 def errorhandler_404(err):
     response = jsonify({"error": "Not found"})
     response.status_code = 404
     return response
+
 
 if __name__ == "__main__":
     import os
