@@ -2,7 +2,7 @@
 """View to handle requests for the State objects"""
 from api.v1.views import app_views
 from flask import jsonify, abort, request
-from models import storage, State
+from models import storage, state
 
 
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
@@ -12,4 +12,4 @@ def get_states():
     json_states = []
     for state in states.values():
         json_states.append(state.to_dict())
-	return jsonify(json_states)
+    return jsonify(json_states)
